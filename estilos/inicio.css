@@ -1,0 +1,75 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #6610f2, #153ef3);
+    background-size: 200% 200%;
+    animation: cambiar 7s ease infinite;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;  
+}
+
+h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 3rem;
+    color: white;
+    letter-spacing: 4px;
+}
+
+.bienvenida p {
+    font-size: 3rem;
+    margin: 1.5rem 0;
+}
+
+h2 {
+    font-family: 'Prompt', sans-serif;
+    font-size: 2rem;
+    color: white;
+    letter-spacing: 2px;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: white;
+    letter-spacing: 2px;
+}
+
+section{
+    text-align: center;
+}
+
+.juegos{
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+}
+
+.juegos img{
+    width: 300px;
+    height: 300px;    
+}
+
+.juegos img:last-child {
+    border: 15px solid red;  
+}
+
+.lista-juegos{
+    border: 10px solid #b595e9;
+    border-radius: 10px;
+    padding: 0 20px 20px 20px;
+    box-sizing: border-box;
+
+}
+
+@keyframes cambiar {
+    0% {background-position: 0 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0 50%;}
+}
