@@ -1,0 +1,9 @@
+.mascota input {
+    display: none;
+}
+
+.mascota img {
+    width: 150px;
+    height: 150px;
+}
+

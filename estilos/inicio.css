@@ -1,4 +1,4 @@
-body{
+body {
     margin: 0;
     padding: 0;
     background: linear-gradient(45deg, #6610f2, #153ef3);
@@ -6,7 +6,7 @@ body{
     animation: cambiar 7s ease infinite;
 }
 
-main{
+main {
     display: flex;
     flex-direction: column;
     width: 100vw;
@@ -41,17 +41,17 @@ h3 {
     letter-spacing: 2px;
 }
 
-section{
+section {
     text-align: center;
 }
 
-.juegos{
+.juegos {
     display: flex;
     flex-direction: row;
     gap: 80px;
 }
 
-.juegos img{
+.juegos img {
     width: 300px;
     height: 300px;    
 }
@@ -60,7 +60,7 @@ section{
     border: 15px solid red;  
 }
 
-.lista-juegos{
+.lista-juegos {
     border: 10px solid #b595e9;
     border-radius: 10px;
     padding: 0 20px 20px 20px;
