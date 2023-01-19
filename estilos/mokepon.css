@@ -1,9 +1,70 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #6610f2, #153ef3);
+    background-size: 200% 200%;
+    animation: cambiar 7s ease infinite;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;  
+}
+
+section {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 3rem;
+    color: white;
+    letter-spacing: 4px;
+}
+
+h2 {
+    font-family: 'Prompt', sans-serif;
+    font-size: 2rem;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.lista-mascotas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.mascota {
+    text-align: center;
+    border: 2px solid green;
+    border-radius: 5px;
+}
+
+.mascota label {
+    cursor: pointer;
+}
+
+.mascota p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+
+}
+
 .mascota input {
     display: none;
 }
 
 .mascota img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
 }
 

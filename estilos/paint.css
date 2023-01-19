@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, rgb(0, 255, 213), rgb(0, 255, 55));
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    border: 3px solid red ;
+}
+
+h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 3rem;
+    color: white;
+    letter-spacing: 4px;
+}
+
+h2 {
+    font-family: 'Prompt', sans-serif;
+    font-size: 2rem;
+    color: white;
+    font-weight:bolder;
+}

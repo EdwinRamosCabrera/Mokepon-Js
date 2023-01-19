@@ -3,3 +3,25 @@ body {
     padding: 0;
 }
 
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    text-align: center;
+}
+
+canvas {
+/*     width: 1000px;
+    height: 700px; */
+    border: 3px solid rgb(11, 235, 41);
+}
+
+
+
