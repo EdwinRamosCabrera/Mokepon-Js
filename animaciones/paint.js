@@ -1,3 +1,5 @@
+//Dibujar aciendo click la pantalla y click en la paleta de colores para cambiar de color 
+
 var pantalla = document.querySelector("canvas");
 var pincel = pantalla.getContext("2d");
 
@@ -22,21 +24,25 @@ function dibujarCirculo(evento){
     if(puedoDibujar){
         var x = evento.pageX - pantalla.offsetLeft;
         var y = evento.pageY - pantalla.offsetTop;
-        pincel.fillStyle = color;
-        pincel.beginPath();
-        pincel.arc(x, y, 5, 0, 2*Math.PI)
-        pincel.fill();
+
+        if( (x > 150 && y > 0 ) || (x > 0 && y > 50)){  // se aumentaria la pantalla.offLeft si se tuviera margenes 
+            pincel.fillStyle = color;
+            pincel.beginPath();
+            pincel.arc(x, y, 5, 0, 2*Math.PI)
+            pincel.fill();
+        }
     }   
 }
 
 function elegirColor(evento){
     var x = evento.pageX - pantalla.offsetLeft;
     var y = evento.pageY - pantalla.offsetTop;
-    if((x<=50)&&(y<=50)){
+
+    if( x <= 50 && y <= 50 ){
         color = "red";
-    }else if((x<=100)&&(x>50)&&(y<=50)){
+    }else if(x <= 100 && x > 50 && y <= 50){
         color = "blue";
-    } else if((x<=150)&&(x>100)&&(y<=50)){
+    }else if(x <= 150 && x > 100 && y <= 50){
         color = "yellow";
     }
 }
@@ -52,7 +58,7 @@ function deshabilitarDibujar(){
 pantalla.onmousedown = habilitarDibujar;
 pantalla.onmouseup = deshabilitarDibujar;
 pantalla.onmousemove = dibujarCirculo;
-pantalla.oncontextmenu = elegirColor;
+pantalla.onclick= elegirColor;
 
 
 

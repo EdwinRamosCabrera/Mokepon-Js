@@ -21,7 +21,8 @@ h1 {
     font-family: 'Fredoka One', cursive;
     font-size: 3rem;
     color: white;
-    letter-spacing: 4px;
+    letter-spacing: 10px;
+    margin: 10px 0;
 }
 
 h2 {
@@ -29,4 +30,13 @@ h2 {
     font-size: 2rem;
     color: white;
     font-weight:bolder;
+    margin: 0px 0px 20px 0px;
+}
+
+img {
+    margin-top: 20px;
+}
+
+p {
+    margin: 0;
 }
