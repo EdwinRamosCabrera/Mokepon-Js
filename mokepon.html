@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat:wght@300;900&family=Open+Sans&family=Prompt:wght@300&family=Quattrocento+Sans:wght@700&family=Quattrocento:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos/mokepon.css">
     <title>Mokepon</title>
+    <script defer src="/animaciones/mokepon.js"></script>
 </head>
 <body>
     <main>
@@ -25,7 +26,7 @@
                         <p>Hipodoge</p>
                         <img src="/imagenes/mokepon_hipodoge_attack.png" alt="hipodoge">
                     </label>
-                    <input type="radio" name="mascota" id="hipodoge">
+                    <input type="radio" name="mascota" id="hipodoge" checked>
                 </div>
                 <div class="mascota">
                     <label for="capipepo">
@@ -43,18 +44,18 @@
                 </div>
             </div>
 
-            <button>Seleccionar</button>
+            <button id="boton-seleccionar">Seleccionar</button>
 
         </section>
 
-        <section class="elegir-ataques">
+        <section class="elegir-ataque">
 
             <p>Elige tú ataque:</p>
 
             <div class="ataques">
-                <button class="fuego">Fuego 🔥</button>
-                <button class="agua">Agua 💧</button>
-                <button class="tierra">Tierra 🍀</button>
+                <button id="boton-fuego">Fuego 🔥</button>
+                <button id="boton-agua">Agua 💧</button>
+                <button id="boton-tierra">Tierra 🍀</button>
             </div>
 
             <div class="resultado">
@@ -67,6 +68,18 @@
 
         </section>
 
+        <section id="mensajes">
+            <p>Tú mascota elegida fue <span id="span-MascotaJugador">Hipodogue</span> y tiene <span id="span-vidaJugador">3</span> vidas</p>
+            <p>El enemigo eligio la mascota <span id="span-MascotaEnemigo">Hipodogue</span> y tiene <span id="span-vidaEnemigo">3</span> vidas</p>     
+            
+            <p><span id="resultado-combate">Ganaste</span></p>
+        </section>
+
+
+
+        <section class="reiniciar">
+            <button id="boton-reiniciar">Reiniciar</button>
+        </section>
 
     </main>
 </body>
