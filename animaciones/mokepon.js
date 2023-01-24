@@ -3,7 +3,18 @@ let ataqueEnemigo;
 let vidasJugador = 3;
 let vidasEnemigo = 3;
 
+
 function iniciarJuego(){
+
+    let sectionElegirAtaque = document.getElementById('elegir-ataque');
+    sectionElegirAtaque.style.display = 'none';
+
+    let sectionReinicar = document.getElementById('reiniciar');
+    sectionReinicar.style.display = 'none';
+
+    let sectionMensajes = document.getElementById('mensajes');
+    sectionMensajes.style.display = 'none';
+
     let botonMascotaJugador = document.getElementById('boton-seleccionar');
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador);
 
@@ -16,10 +27,21 @@ function iniciarJuego(){
     let botonTierra = document.getElementById('boton-tierra');
     botonTierra.addEventListener('click', ataqueTierra);
 
-
+    let botonReiniciar = document.getElementById('boton-reiniciar');
+    botonReiniciar.addEventListener('click', reiniciarJuego);
 }
 
 function seleccionarMascotaJugador(){
+
+    let sectionElegirMascota = document.getElementById('elegir-mascota');
+    sectionElegirMascota.style.display = 'none';
+
+    let sectionElegirAtaque = document.getElementById('elegir-ataque');
+    sectionElegirAtaque.style.display = 'block'
+
+    let sectionMensajes = document.getElementById('mensajes');
+    sectionMensajes.style.display = 'block';
+
     let inputHipodoge = document.getElementById('hipodoge');
     let inputRatigueya = document.getElementById('ratigueya');
     let inputCapipepo = document.getElementById('capipepo');
@@ -33,7 +55,7 @@ function seleccionarMascotaJugador(){
         spanMascotaJugador.innerHTML = 'Ratigueya'
     }
 
-    seleccionarMascotaEnemigo;
+    seleccionarMascotaEnemigo();
 
 }
 
@@ -50,22 +72,22 @@ function seleccionarMascotaEnemigo(){
     } else if(mascotaEnemigo == 2){
         spanMascotaEnemigo.innerHTML = 'Capipepo';
     } else {
-        spanMascotaEnemigo.innerHTML = 'Ratigueya'
+        spanMascotaEnemigo.innerHTML = 'Ratigueya';
     }    
 }
 
 function ataqueFuego(){
-    ataqueJugador = 'fuego';
+    ataqueJugador = 'FUEGO';
     seleccionarAtaqueEnemigo();
 }
 
 function ataqueAgua(){
-    ataqueJugador = 'agua';
+    ataqueJugador = 'AGUA';
     seleccionarAtaqueEnemigo();
 }
 
 function ataqueTierra(){
-    ataqueJugador = 'tierra';
+    ataqueJugador = 'TIERRA';
     seleccionarAtaqueEnemigo();
 }
 
@@ -73,55 +95,87 @@ function seleccionarAtaqueEnemigo(){
     let ataqueAleatorio = aleatorio(1, 3);
 
     if(ataqueAleatorio == 1){
-        ataqueEnemigo = 'fuego';
+        ataqueEnemigo = 'FUEGO';
     } else if (ataqueAleatorio == 2) {
-        ataqueEnemigo = 'agua';
+        ataqueEnemigo = 'AGUA';
     } else {
-        ataqueEnemigo = 'tierra';
+        ataqueEnemigo = 'TIERRA';
     }
 
     combate();
-    console.log(ataqueEnemigo);
-    console.log(ataqueJugador);
+  
 }
 
 function combate(){
-    let resultadoCombate;
+  
     let spanVidaJugador = document.getElementById('span-vidaJugador');
-    let spanVidaEnemigo = document.getElementById('span-VidaEnemigo');
-    let spanResultado = document.getElementById('resultado-combate');
-
+    let spanVidaEnemigo = document.getElementById('span-vidaEnemigo');
+    
     if (ataqueJugador == ataqueEnemigo){
-        resultadoCombate = 'Empate';
-        spanResultado.innerHTML = resultadoCombate;
-
-    } else if(ataqueJugador == 'fuego' && ataqueEnemigo == 'tierra'){
-        resultadoCombate = 'Ganaste';
+        crearMensaje('Empate');
+    } else if(ataqueJugador == 'FUEGO' && ataqueEnemigo == 'TIERRA'){
+        crearMensaje('Ganaste');
+        vidasEnemigo--;
+        spanVidaEnemigo.innerHTML = vidasEnemigo;      
+    } else if(ataqueJugador == 'AGUA' && ataqueEnemigo == 'FUEGO'){
+        crearMensaje('Ganaste');
         vidasEnemigo--;
         spanVidaEnemigo.innerHTML = vidasEnemigo;
-        spanResultado.innerHTML = resultadoCombate;
-
-        
-    } else if(ataqueJugador == 'agua' && ataqueEnemigo == 'fuego'){
-        resultadoCombate = 'Ganaste';
+    } else if(ataqueJugador == 'TIERRA' && ataqueEnemigo == 'AGUA'){
+        crearMensaje('Ganaste');
         vidasEnemigo--;
         spanVidaEnemigo.innerHTML = vidasEnemigo;
-        spanResultado.innerHTML = resultadoCombate;
-
-    } else if(ataqueJugador == 'tierra' && ataqueEnemigo == 'agua'){
-        resultadoCombate = 'Ganaste';
-        vidasEnemigo--;
-        spanVidaEnemigo.innerHTML = vidasEnemigo;
-        spanResultado.innerHTML = resultadoCombate;
-
     } else {
-        resultadoCombate = 'Perdiste'
+        crearMensaje('Perdiste');
         vidasJugador--;
         spanVidaJugador.innerHTML = vidasJugador;
-        spanResultado.innerHTML = resultadoCombate;
+    }
+
+    revisarVidas();
+}
+
+function revisarVidas(){
+    if(vidasJugador == 0){
+        crearMensajeFinal('LO SIENTO - PERDISTE 😔');
+    } else if(vidasEnemigo == 0){
+        crearMensajeFinal('FELICIDADES!!! - GANASTE 😉'); 
     }
 }
 
+function crearMensaje(resultado){
+    let mensajeEncuentros = document.getElementById('mensajes');
+    let parrafo = document.createElement('p');
+
+    parrafo.innerHTML = 'Tú mascota atacó con ' + ataqueJugador + ', la mascota del enemigo atacó con ' + ataqueEnemigo + ' - ' + resultado ;
+
+    mensajeEncuentros.appendChild(parrafo);
+}
+
+function crearMensajeFinal(resultadoFinal){
+
+    let sectionReinicar = document.getElementById('reiniciar');
+    sectionReinicar.style.display = 'block';
+
+    let resultadoJuego = document.getElementById('mensajes');
+    let parrafoFinal = document.createElement('p');
+
+    parrafoFinal.innerHTML = resultadoFinal;
+    resultadoJuego.appendChild(parrafoFinal);
+
+    let botonFuego = document.getElementById('boton-fuego');
+    botonFuego.disabled = true;
+
+    let botonAgua = document.getElementById('boton-agua');
+    botonAgua.disabled = true;
+
+    let botonTierra = document.getElementById('boton-tierra');
+    botonTierra.disabled = true;
+
+}
+
+function reiniciarJuego(){
+    location.reload();
+}
 
 window.addEventListener("load", iniciarJuego);
 
